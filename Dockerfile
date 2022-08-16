@@ -17,7 +17,7 @@ COPY . .
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # install project dependencies
-RUN yarn install
+RUN yarn deps
 
 # build project solutions
 RUN yarn build:app
