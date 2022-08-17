@@ -46,8 +46,11 @@
     { name: "Recommended", cpu: 4, memory: 1024 * 4, diskSize: 500 },
   ];
 
+  
+
   const deploymentStore = window.configs?.deploymentStore;
   let data = new Peertube();
+  console.log(data);
 
   let active: string = "base";
   let loading = false;
