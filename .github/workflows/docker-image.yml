@@ -65,9 +65,6 @@ jobs:
         run: |
           docker build -t threefolddev/grid_weblets:${{ steps.previoustag.outputs.tag }} --build-arg NETWORK=${NETWORK} --build-arg VERSION=${VERSION} .
           echo ${NETWORK} ${VERSION}
-        with:
-          tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
-          build-args: VERSION=${VERSION},NETWORK=${NETWORK}
 
       - name: Push docker image
         uses: docker/build-push-action@v3
