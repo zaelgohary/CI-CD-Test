@@ -7,7 +7,7 @@ ARG NETWORK
 # add arg for the version
 ARG VERSION
 
-RUN echo ${NETWORK} ${VERSION}
+RUN echo $NETWORK
 # make the 'app' folder the current working directory
 WORKDIR /app
 
