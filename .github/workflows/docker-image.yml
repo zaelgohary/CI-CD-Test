@@ -66,6 +66,6 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
-          build-args| : 
+          build-args: | 
             VERSION=${VERSION}
             NETWORK=${NETWORK}
