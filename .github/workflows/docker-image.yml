@@ -63,7 +63,9 @@ jobs:
 
       - name: Build and push
         uses: docker/build-push-action@v3
-        run: docker build -t threefolddev/grid_weblets:${VERSION} --build-arg NETWORK=${NETWORK} --build-arg VERSION=${VERSION} .
+        run: |
+          docker build -t threefolddev/grid_weblets:${VERSION} --build-arg NETWORK=${NETWORK} --build-arg VERSION=${VERSION} .
+          echo ${NETWORK} ${VERSION}
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
