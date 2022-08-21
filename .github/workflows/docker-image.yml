@@ -56,8 +56,6 @@ jobs:
       - name: Get Previous tag
         id: previoustag
         uses: actions-ecosystem/action-get-latest-tag@v1
-        with:
-          fallback: latest # Optional fallback tag to use when no tag can be found
 
       - name: Login to DockerHub
         uses: docker/login-action@v2
@@ -71,5 +69,5 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
           build-args: |
-            VERSION=${env.VERSION}
+            VERSION=${{env.VERSION}}
             NETWORK=${env.NETWORK}
