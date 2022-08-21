@@ -70,4 +70,4 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
           build-args: |
             VERSION=${{env.VERSION}}
-            NETWORK=${env.NETWORK}
+            NETWORK=${{env.NETWORK}}
