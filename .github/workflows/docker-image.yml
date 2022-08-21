@@ -62,10 +62,11 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build and push
+        run: echo ::set-output name=build-args::VERSION=$(VERSION),NETWORK=$(NETWORK)
         uses: docker/build-push-action@v3
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/grid_weblets:${{ steps.previoustag.outputs.tag }}
-          args: |
+          build-args: |
             VERSION=${VERSION}
             NETWORK=${NETWORK}
